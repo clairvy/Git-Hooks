@@ -1,11 +1,11 @@
 #!/bin/sh
 host=https://github.com/mzp/Git-Hooks
-if [ $(git rev-parse --is-bare-repository) == "false" ]; then
+if [[ $(git rev-parse --is-bare-repository) == false ]]; then
     echo "please run on bare repository"
     exit 1
 fi
 
-cd $(git rev-parse --show-toplevel)
+
 for i in update; do
     echo $i
     curl -o hooks/$i $host/raw/master/$i
